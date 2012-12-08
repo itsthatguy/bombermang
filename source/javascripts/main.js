@@ -2,8 +2,8 @@ $(function() {
 
   pos = [1,1]
 
-  blockX = 25;
-  blockY = 20;
+  blockWidth = 25;
+  blockHeight = 20;
 
   myMap = [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
            [1, 0, 0, 0, 2, 0, 2, 2, 0, 2, 2],
@@ -60,7 +60,7 @@ $(function() {
   }
 
   function moveChar() {
-    myChar.css({top: pos[0]*blockY, left: pos[1]*blockX})
+    myChar.css({top: pos[0]*blockHeight, left: pos[1]*blockWidth})
   }
 
   function addArray(arr1, arr2) {
