@@ -34,8 +34,7 @@ $.extend $.fn.slide,
         _self.handleDrag($(this).index())
 
     @this.find('.block').live 'mouseleave', (e) ->
-      if not _self.isDragging
-        $(this).removeClass('hover')
+      $(this).removeClass('hover') if not _self.isDragging
 
     @this.live 'mousedown', (e) ->
       _this = $(e.target)
