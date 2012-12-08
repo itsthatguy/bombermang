@@ -67,8 +67,8 @@ $(function() {
     return arr1.map(function(i,n) { return arr1[n] + arr2[n] });
   }
 
-  document.onkeydown = function(evt) {
-      evt = evt || window.event;
+  document.onkeydown = function(e) {
+      e = e || window.event;
       var keyCode = evt.keyCode;
       if (keyCode >= 37 && keyCode <= 40) {
           return false;
