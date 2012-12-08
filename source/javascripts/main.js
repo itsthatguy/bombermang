@@ -107,6 +107,8 @@ $(function() {
     newPos = addArray(offset, pos);
     _x = newPos[1];
     _y = newPos[0];
+
+    // If moving up/down to new screen
     if (currentMap[_y] == undefined){
       currentMapIndex = addArray(offset, currentMapIndex);
       newMap = getMap(currentMapIndex);
@@ -117,6 +119,8 @@ $(function() {
       else { pos[0] = newMap.length-1 }
       return true;
     }
+
+    // If moving left/right to new screen
     if (currentMap[_y][_x] == undefined) {
       currentMapIndex = addArray(offset, currentMapIndex);
       newMap = getMap(currentMapIndex);
@@ -127,15 +131,15 @@ $(function() {
       else { pos[1] = newMap[0].length-1 }
       return true;
     }
+
+    // If the next block has no collision
     if (currentMap[_y][_x] < 1) {
       pos = newPos;
       return true;
     }
   }
 
-  function getMap(index) {
-    return myMap[index[0]][index[1]];
-  }
+  function getMap(index) { return myMap[index[0]][index[1]]; }
 
   function moveChar() {
     myChar.css({top: pos[0]*blockHeight, left: pos[1]*blockWidth})
