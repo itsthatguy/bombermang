@@ -5,7 +5,7 @@ body {
   text-align: center;
   font-family: sans-serif; }
 
-#main { @include container; height: 400px; }
+#main { @include container; overflow: visible;}
 
 .slide {
   background: #e3e3e3;

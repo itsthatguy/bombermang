@@ -1,0 +1,28 @@
+$block-width: 25px;
+$block-height: 20px;
+
+@mixin spritesheet($col, $row) {
+  background-position: ($col * $block-width) ($row * $block-height);
+}
+
+.gamescreen { background: #444; margin: 0 auto 12px; width: 300px; padding: 40px; }
+.table { position: relative; margin: 0 auto 12px; width: 275px; border: 1px solid #000;}
+.instructions {
+  background: image-url('/images/controller.png') no-repeat center 4px;
+  color: #fff;
+  text-indent: -300%;
+  overflow: hidden;
+  padding-top: 5px;
+  margin-left: 5px;
+}
+.gamerow { display: block; height: 20px; width: 100%;}
+.gameblock {
+  @include inline-block;
+  background: image-url('/images/blocksheet.png');
+  width: 25px;
+  height: 20px;
+
+  &.block-0 { @include spritesheet(0, 0); }
+  &.block-1 { @include spritesheet(0, 1); }
+  &.block-2 { @include spritesheet(0, 2); }
+}

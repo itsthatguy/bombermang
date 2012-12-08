@@ -29,8 +29,6 @@ $.extend $.fn.slide,
     @this.find('.block').live 'mouseover', (e) ->
       if not _self.isDragging
         $(this).addClass('hover')
-      else
-        _self.handleDrag($(this).index())
 
     @this.find('.block').live 'mouseleave', (e) ->
       $(this).removeClass('hover') if not _self.isDragging
@@ -44,11 +42,24 @@ $.extend $.fn.slide,
       _self.isDragging = false
       _obj.find('.block').removeClass('hover')
 
-    @this.live 'mousemove', (e) ->
-      if _self.isDragging
-        $('body').addClass('dragging')
-      else
+      if _self.bodyDrag
+        _self.bodyDrag = false
         $('body').removeClass('dragging')
+
+    @this.live 'mousemove', (e) ->
+      if not _self.bodyDrag
+        _self.bodyDrag = true
+        $('body').addClass('dragging')
+
+
+      #
+      #  YOU NEED TO SET IT UP TO MULTIPLY INCREMENT WIDTH
+      #  BY MODULO CALCULATION CAPTURING THE MOUSE MOVE
+      #  AND THE MOUSE START
+      #
+      if _self.isDragging
+        # _self.handleDrag($(this).index())
+      else
 
   handleDrag: (index) ->
     @this.find('.block').removeClass('hover')
