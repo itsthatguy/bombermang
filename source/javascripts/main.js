@@ -1,7 +1,6 @@
 $(function() {
 
-  positionX = 1;
-  positionY = 1;
+  pos = [1,1]
 
   blockX = 25;
   blockY = 20;
@@ -32,47 +31,40 @@ $(function() {
   $('.table').append('<img src="/images/bomberman.png" class="sprite">')
   myChar = $('.sprite');
   myChar.css({position: 'absolute'})
-  moveChar(1,1);
+  moveChar();
 
   $('body').keydown(function(e) {
-    // 39 right
-    // 37 left
     // 38 up
+    // 39 right
     // 40 down
-    newX = positionX
-    newY = positionY
+    // 37 left
 
-    switch (e.keyCode) {
-      case 38:
-        // up
-        newY = positionY-1
-        break;
-      case 39:
-        // right
-        newX = positionX+1
-        break;
-      case 40:
-        // down
-        newY = positionY+1
-        break;
-      case 37:
-        // left
-        newX = positionX-1
-        break;
+    keyMap = {
+      38: [-1, 0],
+      39: [0, 1],
+      40: [1, 0],
+      37: [0, -1]
     }
-    if (checkMove(newX, newY) == true) moveChar()
+
+    if (checkMove(keyMap[e.keyCode])) moveChar()
   })
 
-  function checkMove(_x, _y) {
+  function checkMove(offset) {
+    newPos = addArray(offset, pos);
+    _x = newPos[1];
+    _y = newPos[0];
     if (myMap[_y] != undefined && myMap[_y][_x] != undefined && myMap[_y][_x] < 1) {
-      positionX = _x
-      positionY = _y
-      return true
+      pos = newPos;
+      return true;
     }
   }
 
   function moveChar() {
-    myChar.css({top: positionY*blockY, left: positionX*blockX})
+    myChar.css({top: pos[0]*blockY, left: pos[1]*blockX})
+  }
+
+  function addArray(arr1, arr2) {
+    return arr1.map(function(i,n) { return arr1[n] + arr2[n] });
   }
 
   document.onkeydown = function(evt) {
