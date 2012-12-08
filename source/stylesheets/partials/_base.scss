@@ -1,0 +1,29 @@
+body {
+  background: #f6f6f6;
+  text-align: center;
+  font-family: sans-serif; }
+
+#main { @include container; height: 400px;}
+
+.slide {
+  background: #e3e3e3;
+  margin: 0 auto;
+  width: 900px;
+  height: 40px;
+}
+
+.block {
+  @include inline-block;
+  background: #a0df81;
+  margin: 0 4px 0 1px;
+  height: 100%;
+
+  &.hover {
+    @include box-shadow(0 0 0 1px #000);
+  }
+
+  &:last-child { margin: 0; }
+  &.empty {
+    background: #ddd;
+  }
+}
