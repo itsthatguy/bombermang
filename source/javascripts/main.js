@@ -109,24 +109,32 @@ $(function() {
     _y = newPos[0];
     if (currentMap[_y] == undefined){
       currentMapIndex = addArray(offset, currentMapIndex);
-      drawMap(myMap[currentMapIndex[0]][currentMapIndex[1]])
+      newMap = getMap(currentMapIndex);
+
+      drawMap(newMap);
 
       if (offset[0] > 0) { pos[0] = 0 }
-      else { pos[0] = myMap[currentMapIndex[0]][currentMapIndex[1]].length-1 }
+      else { pos[0] = newMap.length-1 }
       return true;
     }
     if (currentMap[_y][_x] == undefined) {
       currentMapIndex = addArray(offset, currentMapIndex);
-      drawMap(myMap[currentMapIndex[0]][currentMapIndex[1]])
+      newMap = getMap(currentMapIndex);
+
+      drawMap(newMap)
+
       if (offset[1] > 0) { pos[1] = 0 }
-      else { pos[1] = myMap[currentMapIndex[0]][currentMapIndex[1]][0].length-1 }
-        console.log(myMap[currentMapIndex[0]][currentMapIndex[1]][0].length)
+      else { pos[1] = newMap[0].length-1 }
       return true;
     }
     if (currentMap[_y][_x] < 1) {
       pos = newPos;
       return true;
     }
+  }
+
+  function getMap(index) {
+    return myMap[index[0]][index[1]];
   }
 
   function moveChar() {
