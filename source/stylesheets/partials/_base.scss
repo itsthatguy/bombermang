@@ -1,9 +1,11 @@
 body {
+  @include user-select(auto);
+  &.dragging { @include user-select(none); }
   background: #f6f6f6;
   text-align: center;
   font-family: sans-serif; }
 
-#main { @include container; height: 400px;}
+#main { @include container; height: 400px; }
 
 .slide {
   background: #e3e3e3;

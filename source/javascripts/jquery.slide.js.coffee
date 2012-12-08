@@ -17,7 +17,6 @@ $.extend $.fn.slide,
   init: (el, options) ->
     @this = $(el)
     @blockMarkup = '<div class="block"></div>'
-    # @thing(el, options)
 
     @updateMeasurements(options.increments)
     @drawIncrements()
@@ -44,6 +43,12 @@ $.extend $.fn.slide,
     $('html').live 'mouseup', (e) ->
       _self.isDragging = false
       _obj.find('.block').removeClass('hover')
+
+    @this.live 'mousemove', (e) ->
+      if _self.isDragging
+        $('body').addClass('dragging')
+      else
+        $('body').removeClass('dragging')
 
   handleDrag: (index) ->
     @this.find('.block').removeClass('hover')
