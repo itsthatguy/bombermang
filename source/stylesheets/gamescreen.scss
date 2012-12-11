@@ -26,3 +26,10 @@ $block-height: 20px;
   &.block-1 { @include spritesheet(0, 1); }
   &.block-2 { @include spritesheet(0, 2); }
 }
+
+.gamebomb {
+  background: image-url('/images/blocksheet.png') 0 25;
+  width: 25px;
+  height: 20px;
+  position: absolute;
+}
