@@ -4,11 +4,22 @@ class Bomb
     @x = _x
     @y = _y
     @drawSprite()
+    @listeners = []
 
   drawSprite: ->
     console.log(@sprite)
-    $('.table').append(@sprite)
+    $('.table').prepend(@sprite)
     @sprite.css({'top': @y, 'left': @x})
     console.log @x, @y
+    setTimeout(@explode, 1000)
+
+  bind: (listener) ->
+    @listeners.push listener
+
+  explode: =>
+    @sprite.hide()
+    for listener in @listeners
+      listener.bombExploded(this)
+
 
 window.Bomb = Bomb
