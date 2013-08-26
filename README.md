@@ -1,6 +1,8 @@
 Bombermang
 =====
 
+This is the start of a coffeescript bomberman clone.
+
 Game files are in  `source/javascripts`
 
 
@@ -13,5 +15,5 @@ middleman
 
 
 ### Contact
-kevin@itsthatguy.com
-@itg
+* email: kevin@itsthatguy.com
+* twitter: [@itg](http://twitter.com/itg)
