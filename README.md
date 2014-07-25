@@ -12,8 +12,3 @@ Game files are in  `source/javascripts`
 bundle install
 middleman
 ```
-
-
-### Contact
-* email: kevin@itsthatguy.com
-* twitter: [@itg](http://twitter.com/itg)
