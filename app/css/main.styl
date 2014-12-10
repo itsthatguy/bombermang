@@ -1,0 +1,73 @@
+@import 'partials/_base.styl';
+
+$block-width = 16px;
+$block-height = 16px;
+
+spritesheet($x, $y) {
+  $left = $x * -1px;
+  $right = $y * -1px;
+  background: url('/assets/img/spritesheet.png');
+  background-position: $left $right;
+}
+
+.character {
+  spritesheet(52, 38);
+  margin-top: -8px;
+  width: 16px;
+  height: 24px;
+  position: absolute;
+}
+
+.gamescreen {
+  background: #444;
+  margin: 0 auto 12px;
+  width: 300px;
+  padding: 40px;
+}
+
+.table {
+  position: relative;
+  margin: 0 auto 12px;
+  width: 192px;
+  border: 1px solid #000;
+}
+
+.instructions {
+  background: url('/assets/img/controller.png') no-repeat center 4px;
+  color: #fff;
+  text-indent: -300%;
+  overflow: hidden;
+  padding-top: 5px;
+  margin-left: 5px;
+}
+
+.gamerow {
+  display: block;
+  height: $block-height;
+  width: 100%;
+}
+
+.gameblock {
+  display: inline-block;
+  width: $block-width;
+  height: $block-height;
+  z-index: 1000;
+
+  &.block-0 {
+    spritesheet(105, 175);
+  }
+  &.block-1 {
+    spritesheet(71, 175);
+  }
+  &.block-2 {
+    spritesheet(88, 175);
+  }
+}
+
+.gamebomb {
+  background: url('/assets/img/bombsheet.png') 4px 2px no-repeat;
+  width: 25px;
+  height: 20px;
+  position: absolute;
+  z-index: 3000;
+}

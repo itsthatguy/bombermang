@@ -3,12 +3,11 @@ Bombermang
 
 This is the start of a coffeescript bomberman clone.
 
-Game files are in  `source/javascripts`
+Game files are in  `app/js`
 
 
 ### Setup
 
 ```
-bundle install
-middleman
+npm start
 ```

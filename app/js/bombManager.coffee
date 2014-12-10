@@ -1,5 +1,6 @@
-class BombManager
+Bomb = require("./bomb")
 
+class BombManager
   constructor: ->
     @bombMap = []
     @bombMap[0] = []
@@ -35,4 +36,4 @@ class BombManager
 
   getMap: (mapCol, mapRow) -> return @bombMap[mapCol][mapRow]
 
-window.BombManager = BombManager
+module.exports = BombManager

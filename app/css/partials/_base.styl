@@ -1,11 +1,15 @@
 body {
-  @include user-select(auto);
-  &.dragging { @include user-select(none); }
+  user-select: auto;
+  &.dragging { user-select: none; }
   background: #f6f6f6;
   text-align: center;
-  font-family: sans-serif; }
+  font-family: sans-serif;
+}
 
-#main { @include container; overflow: visible;}
+#main {
+  /*@include container;*/
+  overflow: visible;
+}
 
 .slide {
   background: #e3e3e3;
@@ -15,13 +19,13 @@ body {
 }
 
 .block {
-  @include inline-block;
+  display: inline-block;
   background: #a0df81;
   margin: 0 4px 0 1px;
   height: 100%;
 
   &.hover {
-    @include box-shadow(0 0 0 1px #000);
+    box-shadow: 0 0 0 1px #000;
   }
 
   &:last-child { margin: 0; }

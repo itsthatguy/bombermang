@@ -1,5 +1,7 @@
+BombManager = require("./BombManager")
+
 class GameManager
-  pos: [1,1]
+  pos: [1, 1]
 
   blockWidth: 16
   blockHeight: 16
@@ -168,4 +170,4 @@ class GameManager
   addArray: (arr1, arr2) ->
     return arr1.map (i,n) -> return arr1[n] + arr2[n]
 
-window.GameManager = GameManager
+module.exports = GameManager

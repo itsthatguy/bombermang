@@ -17,9 +17,9 @@ class Bomb
     @listeners.push listener
 
   explode: =>
-    @sprite.hide()
+    @sprite.remove()
     for listener in @listeners
       listener.bombExploded(this)
 
 
-window.Bomb = Bomb
+module.exports = Bomb
